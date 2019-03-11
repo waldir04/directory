@@ -1,0 +1,80 @@
+<form
+  class="ui form"
+  [formGroup]="form"
+  [ngClass]="{ loading: loading }"
+  (submit)="onSubmit()"
+  novalidate
+>
+  <h4 class="ui dividing header">Añadir contacto</h4>
+
+  <div class="field">
+    <label>Nombre</label>
+    <div class="two fields">
+      <div class="field" [ngClass]="invalidFieldClass('firstName')">
+        <input type="text" placeholder="Nombres" formControlName="firstName" />
+      </div>
+      <div class="field" [ngClass]="invalidFieldClass('lastName')">
+        <input type="text" placeholder="Apellidos" formControlName="lastName" />
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Documento</label>
+    <div class="three fields">
+      <div class="field" [ngClass]="invalidFieldClass('documentType')">
+        <select class="ui dropdown" formControlName="documentType">
+          <option value="">Tipo de documento</option>
+          <option value="cedula">Cedula</option>
+          <option value="pasaporte">Pasaporte</option>
+        </select>
+      </div>
+      <div class="field" [ngClass]="invalidFieldClass('documentNumber')">
+        <input
+          type="text"
+          placeholder="Número de documento"
+          formControlName="documentNumber"
+        />
+      </div>
+      <div class="field" [ngClass]="invalidFieldClass('documentExpedition')">
+        <input
+          type="text"
+          placeholder="DD/MM/AAAA"
+          formControlName="documentExpedition"
+          mask="00/00/0000"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Contacto</label>
+    <div class="two fields">
+      <div class="field" [ngClass]="invalidFieldClass('phone')">
+        <input type="text" placeholder="Teléfono" formControlName="phone" />
+      </div>
+      <div class="field" [ngClass]="invalidFieldClass('email')">
+        <input
+          type="email"
+          placeholder="Correo electrónico"
+          formControlName="email"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="field" *ngIf="addContactError">
+    <div class="ui negative message">
+      <div class="header">
+        El contacto no ha sido registrado.
+      </div>
+      <p>No cumple con los requisitos minimos para ingresar a nuestro sistema de contactos.</p>
+    </div>
+  </div>
+
+  <div class="field">
+    <button class="ui submit primary button" [disabled]="form.invalid">
+      Agregar
+    </button>
+  </div>
+</form>

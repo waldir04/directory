@@ -1,0 +1,16 @@
+<div class="ui secondary pointing menu">
+
+  <ng-container *ngFor="let item of menuItems; trackBy: trackBy">
+    <a class="item" [routerLink]="item.path" routerLinkActive="active">
+      <i class="icon" [ngClass]="item.iconClasses"></i>
+      {{ item.text }}
+    </a>
+  </ng-container>
+
+  <div class="right menu">
+    <a class="ui item">
+      <i class="icon power off"></i>
+    </a>
+  </div>
+
+</div>

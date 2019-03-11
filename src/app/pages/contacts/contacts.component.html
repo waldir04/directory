@@ -1,0 +1,32 @@
+<div class="ui form" [ngClass]="{ loading: loading }">
+  <table class="ui very basic table small">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Tipo documento</th>
+        <th>Número documento</th>
+        <th>Telefóno</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="contacts.length; else noContacts">
+        <tr *ngFor="let contact of contacts">
+          <td>{{ fullName(contact) }}</td>
+          <td>{{ contact.documentType | titlecase }}</td>
+          <td>{{ contact.documentNumber }}</td>
+          <td>{{ contact.phone }}</td>
+        </tr>
+      </ng-container>
+
+      <ng-template #noContacts>
+        <tr>
+          <td class="center aligned" colspan="4">
+            No hay contactos registrados.
+          </td>
+        </tr>
+      </ng-template>
+
+
+    </tbody>
+  </table>
+</div>

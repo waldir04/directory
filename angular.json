@@ -27,7 +27,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/semantic-ui/dist/semantic.min.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -90,6 +91,9 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+            ],
+            "codeCoverageExclude": [
+              "src/testing/**"
             ]
           }
         },

@@ -1,0 +1,2 @@
+export const CONTACT_IDENTIFIERS = ['5678', '1234', '4321', '8765'];
+export const CONTACT_WITH_CRIMINAL_RECORD = ['5678'];
